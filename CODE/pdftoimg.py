@@ -21,11 +21,15 @@ class Convert:
     def convert(self, pdf_name, pixels, image, image_ext):
 
         '''This method transforms a pdf into an image'''
+        try:
 
-        pages = convert_from_path(os.path.join(self.working_path, pdf_name), pixels)
+            pages = convert_from_path(os.path.join(self.working_path, pdf_name), pixels)
 
-        for page in pages:
-            page.save(os.path.join(self.working_path, image), image_ext)
+            for page in pages:
+                page.save(os.path.join(self.working_path, image), image_ext)
+        except:
+
+            print('There is no pdf file. Please Provide one')
 
 if __name__ == '__main__':
 

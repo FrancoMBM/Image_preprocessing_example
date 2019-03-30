@@ -40,20 +40,27 @@ class Image_Processing:
         ''' This is the method that transform the image into text
             and saves it to disk. it is important to note that the
             text_path and image_path are relative paths starting
-            from the predefines current working directory
+            from the predefined current working directory
         '''
 
-        self.img = Image.open(image_path)
-        self.text = pyt.image_to_string(self.img, lang =language)
 
-        with open (os.path.join(self.cwd, text_path), 'w') as text_file:
-            text_file.write(self.text)
+        try:
+            self.img = Image.open(image_path)
+            self.text = pyt.image_to_string(self.img, lang =language)
+            
+            with open (os.path.join(self.cwd, text_path), 'w') as text_file:
+                text_file.write(self.text)
+        except IOError as e:
+            print('There is no image file.')
 
     def read_image_to_text(self, text_abs_path):
 
-        with open(os.path.join(os.getcwd(),text_abs_path), 'rt') as f:
-            self.text = f.read()
-        print(self.text)
+        try:
+            with open(os.path.join(os.getcwd(),text_abs_path), 'rt') as f:
+                self.text = f.read()
+                print(self.text)
+        except IOError as e:
+            print ('The file cannot be accessed')
 
 if __name__ == '__main__':
     Png = Image_Processing('Desktop', 'TA_Mac', 'Img_pross') # an imput could be added here :)
