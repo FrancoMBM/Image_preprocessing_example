@@ -1,3 +1,5 @@
+For old Scanned pdfs:
+
 In order to use this code is necessary to install the following programs:
 
 For a Mac OS:
@@ -11,3 +13,4 @@ Using homebrew:
 Note that this is unrelated to the python packages that are on the requirements.txt file
 
 I have not yet tried to install those programs on Windows but I believe it should be a lot more complicated.
+I will provide a way to iterate trough every picture and generate multiple test files in the future
